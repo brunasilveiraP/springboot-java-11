@@ -16,7 +16,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name = "tb_user")
 public class User implements Serializable {
-
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -29,10 +28,9 @@ public class User implements Serializable {
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "client")
-	private List<Order> orders = new ArrayList<Order>();
+	private List<Order> orders = new ArrayList<>();
 
 	public User() {
-
 	}
 
 	public User(Long id, String name, String email, String phone, String password) {
@@ -112,5 +110,4 @@ public class User implements Serializable {
 			return false;
 		return true;
 	}
-
 }

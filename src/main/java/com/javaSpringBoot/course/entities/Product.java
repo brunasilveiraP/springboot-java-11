@@ -19,7 +19,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name = "tb_product")
 public class Product implements Serializable {
-
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -38,7 +37,6 @@ public class Product implements Serializable {
 	private Set<OrderItem> items = new HashSet<>();
 
 	public Product() {
-
 	}
 
 	public Product(Long id, String name, String description, Double price, String imgUrl) {
@@ -97,8 +95,8 @@ public class Product implements Serializable {
 	@JsonIgnore
 	public Set<Order> getOrders() {
 		Set<Order> set = new HashSet<>();
-		for (OrderItem order : items) {
-			set.add(order.getOrder());
+		for (OrderItem x : items) {
+			set.add(x.getOrder());
 		}
 		return set;
 	}
@@ -109,10 +107,6 @@ public class Product implements Serializable {
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
-	}
-
-	public Set<OrderItem> getItems() {
-		return items;
 	}
 
 	@Override
@@ -131,5 +125,4 @@ public class Product implements Serializable {
 			return false;
 		return true;
 	}
-
 }
